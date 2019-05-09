@@ -22,6 +22,7 @@ public class Player_Stats : MonoBehaviour {
     {
         _worldScripts = GameObject.Find("_Scripts");
         _health = 20;
+        _permanent_kills = 40;
         _kills = 0;
         _currentLevel = 0;
     }

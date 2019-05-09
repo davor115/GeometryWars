@@ -30,7 +30,7 @@ public class BossControl_Script : MonoBehaviour
 
             if (Player.GetComponent<Player_Stats>()._currentLevel == 0)
             {
-                GameObject Boss0 = Instantiate(Level0Boss, GameObject.Find("Spawn_Boss").transform.position, GameObject.Find("Spawn_Boss").transform.rotation);
+                GameObject Boss0 = Instantiate(Level0Boss, GameObject.Find("Spawn_Boss").transform.localPosition, GameObject.Find("Spawn_Boss").transform.rotation);
 
             }
 
