@@ -4,7 +4,7 @@ using UnityEngine;
 public class BulletVelocity : MonoBehaviour
 {
     Rigidbody m_rigidbody;
-
+    
     [SerializeField]
     float m_maxVelocity = 100f;
 
@@ -18,13 +18,12 @@ public class BulletVelocity : MonoBehaviour
 
     void Update()
     {
-        
         // if (m_rigidbody.velocity.magnitude > m_maxVelocity)
         // {
         //    m_rigidbody.velocity = Vector3.ClampMagnitude(m_rigidbody.velocity, m_maxVelocity);
         // }
-       
-            gameObject.transform.Translate(transform.forward * 50 * Time.deltaTime);     
+
+        gameObject.transform.Translate(transform.forward * 50.0f * Time.deltaTime);     
       
         // Destroy the object if it's gone to far
         // Much easier than checking if it's directly off the screen, however has to be manually defined and will not work effectively on different aspect ratios

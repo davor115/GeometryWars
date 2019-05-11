@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 114280456791948190}
   - component: {fileID: 114560999390728826}
   - component: {fileID: 54552165423212094}
-  - component: {fileID: 75406319233862528}
   m_Layer: 0
   m_Name: New_Bullet
   m_TagString: Untagged
@@ -133,17 +132,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 48
   m_CollisionDetection: 0
---- !u!75 &75406319233862528
-ConstantForce:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1125985496817252}
-  m_Enabled: 1
-  m_Force: {x: 0, y: 0, z: 0}
-  m_RelativeForce: {x: 0, y: 0, z: 0}
-  m_Torque: {x: 0, y: 0, z: 0}
-  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!114 &114280456791948190
 MonoBehaviour:
   m_ObjectHideFlags: 1

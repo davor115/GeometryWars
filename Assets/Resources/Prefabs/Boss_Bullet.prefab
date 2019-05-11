@@ -22,10 +22,10 @@ GameObject:
   - component: {fileID: 33012624784407024}
   - component: {fileID: 135531249458258986}
   - component: {fileID: 23915129583899634}
-  - component: {fileID: 114280456791948190}
   - component: {fileID: 54552165423212094}
   - component: {fileID: 75406319233862528}
   - component: {fileID: 114562454552167728}
+  - component: {fileID: 114409980247566486}
   m_Layer: 0
   m_Name: Boss_Bullet
   m_TagString: Untagged
@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1125985496817252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4601965, y: -6.05, z: -5.752193}
+  m_LocalPosition: {x: -4.048957, y: -3.2506752, z: -2.4982023}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4905064671459350}
@@ -132,7 +132,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 48
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!75 &75406319233862528
 ConstantForce:
   m_ObjectHideFlags: 1
@@ -144,7 +144,7 @@ ConstantForce:
   m_RelativeForce: {x: 0, y: 0, z: 0}
   m_Torque: {x: 0, y: 0, z: 0}
   m_RelativeTorque: {x: 0, y: 0, z: 0}
---- !u!114 &114280456791948190
+--- !u!114 &114409980247566486
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -152,10 +152,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1125985496817252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1f8716c6e6ede04a8ed4dbadbff5c12, type: 3}
+  m_Script: {fileID: 11500000, guid: 0267fbdf67b4bb642b4723939c6b327b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_damage: 10
 --- !u!114 &114562454552167728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,8 +166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b671d8f46bbc4e248b4411686af2e6e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _position: {x: 0, y: 0, z: 0}
   m_maxVelocity: 100
-  m_destroyDistance: 150
 --- !u!135 &135531249458258986
 SphereCollider:
   m_ObjectHideFlags: 1

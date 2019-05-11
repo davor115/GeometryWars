@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Boss1 : MonoBehaviour {
 
+    public int boss_health;
+
     bool turn;
     float waitTime;
     float setTime;
@@ -16,7 +18,7 @@ public class Boss1 : MonoBehaviour {
         shootPos = GameObject.FindGameObjectsWithTag("ShootPosition");
         setTime = 2.0f;
         waitTime = setTime;
-
+        boss_health = 400;
     }
 	
 	// Update is called once per frame
@@ -25,8 +27,7 @@ public class Boss1 : MonoBehaviour {
         Move();
         if (waitTime >= 0)
         {
-            waitTime -= Time.deltaTime;
-           // Debug.Log("Wait time: " + waitTime);
+            waitTime -= Time.deltaTime;         
         }
         else
         {
@@ -61,7 +62,7 @@ public class Boss1 : MonoBehaviour {
         for(int i = 0; i < shootPos.Length; i++)
         {
             GameObject projectile = Instantiate(Projectile, shootPos[i].transform.position, shootPos[i].transform.rotation);
-            Debug.Log("Fire!");
+            //Debug.Log("Fire!");
         }
     }
 }

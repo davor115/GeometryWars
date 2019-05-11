@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 public class Player_Stats : MonoBehaviour {
 
     // Global Scripts
@@ -14,15 +15,18 @@ public class Player_Stats : MonoBehaviour {
     public int _permanent_kills;
     // UI
     public TextMeshProUGUI Text_Kill;
-    public TextMeshProUGUI Text_Health;
+    public Slider Health_Slider;
+    public Slider Kills_Slider;
+   // public TextMeshProUGUI Text_Health;
     public TextMeshProUGUI Text_Timer;
     public TextMeshProUGUI Text_Level;
     // Use this for initialization
     void Start()
     {
         _worldScripts = GameObject.Find("_Scripts");
-        _health = 20;
-        _permanent_kills = 40;
+        _health = 100;
+      
+       _permanent_kills = 40; // Remember to remove this line..
         _kills = 0;
         _currentLevel = 0;
     }
@@ -30,7 +34,12 @@ public class Player_Stats : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        Text_Health.text = "Health: " + _health;
+        Health_Slider.value = _health;
+
+        if(_permanent_kills <= 40)
+        Kills_Slider.value = _permanent_kills;
+
+       // Text_Health.text = "Health: " + _health;
         Text_Kill.text = "Kills: " + _kills;
         Text_Level.text = "Level: " + _currentLevel;
         if (_worldScripts.GetComponent<BuyMenu>().isActive)
@@ -48,6 +57,8 @@ public class Player_Stats : MonoBehaviour {
     {
         _health -= _damage;
     }
+
+    
 
     public void AddKillPoints(int _point)
     {
