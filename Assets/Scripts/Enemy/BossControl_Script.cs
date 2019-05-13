@@ -6,7 +6,7 @@ public class BossControl_Script : MonoBehaviour
 {
 
     GameObject Player;
-    GameObject EnemySpawner;
+    public GameObject[] EnemySpawner;
 
     public GameObject Level0Boss;
 
@@ -16,24 +16,33 @@ public class BossControl_Script : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
-        EnemySpawner = GameObject.Find("EnemySpawner");
+        EnemySpawner = GameObject.FindGameObjectsWithTag("EnemySpawner");
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Player.GetComponent<Player_Stats>()._permanent_kills >= 40 && SpawnOnce == false)
-        {
-            EnemySpawner.GetComponent<EnemySpawner>().enabled = false;
-            SpawnOnce = true;
+        CheckLevelComplete();
+    }
 
-            if (Player.GetComponent<Player_Stats>()._currentLevel == 0)
+    void CheckLevelComplete()
+    {
+        if (Player != null)
+        {
+            if (Player.GetComponent<Player_Stats>()._permanent_kills >= 40 && SpawnOnce == false) // If the player killed a total of 40 enemies...
             {
-                GameObject Boss0 = Instantiate(Level0Boss, GameObject.Find("Spawn_Boss").transform.localPosition, GameObject.Find("Spawn_Boss").transform.rotation);
+                foreach (GameObject _spawner in EnemySpawner)
+                {
+                    _spawner.GetComponent<EnemySpawner>().enabled = false; // Disable all the enemies spawners
+                }
+                SpawnOnce = true;
+
+                // Spawn the BOSS
+                 GameObject Boss0 = Instantiate(Level0Boss, GameObject.Find("Spawn_Boss").transform.localPosition, GameObject.Find("Spawn_Boss").transform.rotation);
 
             }
-
         }
     }
+
 }

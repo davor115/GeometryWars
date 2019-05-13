@@ -16,13 +16,15 @@ public class Boss1BulletDmg : MonoBehaviour {
         
 	}
 
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if(other.gameObject.CompareTag("Player")) // If the bullet hits a gameObject of tag player...
         {
             Debug.Log("Hit the player. Deal damage.");
+            other.gameObject.GetComponent<Player_Stats>().TakeDamage(5); // Damage the player..
             Destroy(this.gameObject);
         }
+        
     }
 
 }

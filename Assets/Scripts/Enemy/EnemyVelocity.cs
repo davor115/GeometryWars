@@ -36,10 +36,20 @@ public class EnemyVelocity : MonoBehaviour
         // Hard coded the position however same principle as in bullet velocity
         if (transform.position.x <= -20)
         {
-            Player.GetComponent<Player_Stats>().TakeDamage(1);
+            if(Player != null)
+                Player.GetComponent<Player_Stats>().TakeDamage(1);
             Destroy(gameObject);
         }
 
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player"))
+        {
+            other.GetComponent<Player_Stats>().TakeDamage(2); // If the enemy "collides", not really because it's a trigger but yeah basically when it collides, remove health from player.
+            Destroy(this.gameObject);
+        }
     }
 
 

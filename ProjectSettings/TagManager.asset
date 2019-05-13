@@ -6,6 +6,11 @@ TagManager:
   tags:
   - BuyMenu
   - ShootPosition
+  - Boss
+  - CanDestroy
+  - Robot
+  - Wall
+  - EnemySpawner
   layers:
   - Default
   - TransparentFX

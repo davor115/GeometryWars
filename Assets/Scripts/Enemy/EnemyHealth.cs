@@ -7,7 +7,7 @@ public class EnemyHealth : MonoBehaviour
     float m_health = 20f;
 
     GameObject Player;
-
+    public GameObject explosion;
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -19,7 +19,11 @@ public class EnemyHealth : MonoBehaviour
         m_health -= _damage;
         if(m_health <= 0)
         {
-            Player.GetComponent<Player_Stats>().AddKillPoints(1);
+            Player.GetComponent<Player_Stats>().AddKillPoints(1); // Everytime we kill an enemy, we add 1 point to our kill count.
+            if (explosion != null)
+            {
+                Instantiate(explosion, transform.position, transform.rotation);
+            }
             Destroy(gameObject);
         }
     }
